@@ -13,7 +13,7 @@
         
         body {
             font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            background: linear-gradient(135deg, #8B008B, #DA70D6, #FF69B4);
             color: white;
             min-height: 100vh;
         }
@@ -29,6 +29,7 @@
             margin-bottom: 30px;
             font-size: 2.5em;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            color: #FFB6C1;
         }
         
         .playbook-nav {
@@ -39,18 +40,18 @@
         }
         
         .play-category {
-            background: rgba(255,255,255,0.1);
+            background: rgba(218, 112, 214, 0.2);
             padding: 20px;
             border-radius: 15px;
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.2);
+            border: 1px solid rgba(255, 182, 193, 0.3);
         }
         
         .category-title {
             font-size: 1.4em;
             margin-bottom: 15px;
             text-align: center;
-            color: #FFD700;
+            color: #FFB6C1;
         }
         
         .play-button {
@@ -58,7 +59,7 @@
             width: 100%;
             padding: 12px;
             margin: 8px 0;
-            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            background: linear-gradient(135deg, #FF1493, #FF69B4);
             border: none;
             border-radius: 8px;
             color: white;
@@ -70,20 +71,20 @@
         
         .play-button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(255,107,53,0.4);
+            box-shadow: 0 6px 20px rgba(255, 20, 147, 0.4);
         }
         
         .play-button.active {
-            background: linear-gradient(135deg, #FFD700, #FFA500);
-            color: #333;
+            background: linear-gradient(135deg, #FFB6C1, #FF69B4);
+            color: #8B008B;
         }
         
         .animation-container {
-            background: rgba(255,255,255,0.1);
+            background: rgba(218, 112, 214, 0.15);
             padding: 30px;
             border-radius: 15px;
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.2);
+            border: 1px solid rgba(255, 182, 193, 0.3);
             margin-bottom: 30px;
         }
         
@@ -95,7 +96,7 @@
         .play-title {
             font-size: 2em;
             margin-bottom: 10px;
-            color: #FFD700;
+            color: #FFB6C1;
         }
         
         .play-type {
@@ -104,12 +105,12 @@
         }
         
         #field {
-            background: linear-gradient(90deg, #0f7b0f 0%, #228B22 50%, #0f7b0f 100%);
-            border: 4px solid white;
+            background: linear-gradient(90deg, #228B22 0%, #32CD32 50%, #228B22 100%);
+            border: 4px solid #FFB6C1;
             border-radius: 8px;
             margin: 20px auto;
             position: relative;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+            box-shadow: 0 8px 32px rgba(139, 0, 139, 0.3);
             display: block;
         }
         
@@ -134,34 +135,34 @@
         }
         
         .primary-btn {
-            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            background: linear-gradient(135deg, #FF1493, #FF69B4);
             color: white;
-            box-shadow: 0 4px 15px rgba(255,107,53,0.4);
+            box-shadow: 0 4px 15px rgba(255, 20, 147, 0.4);
         }
         
         .primary-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(255,107,53,0.6);
+            box-shadow: 0 6px 20px rgba(255, 20, 147, 0.6);
         }
         
         .secondary-btn {
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, #8B008B, #9370DB);
             color: white;
-            box-shadow: 0 4px 15px rgba(102,126,234,0.4);
+            box-shadow: 0 4px 15px rgba(139, 0, 139, 0.4);
         }
         
         .secondary-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(102,126,234,0.6);
+            box-shadow: 0 6px 20px rgba(139, 0, 139, 0.6);
         }
         
         .play-info {
-            background: rgba(255,255,255,0.1);
+            background: rgba(218, 112, 214, 0.15);
             padding: 20px;
             border-radius: 10px;
             margin: 20px 0;
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.2);
+            border: 1px solid rgba(255, 182, 193, 0.3);
         }
         
         .route-legend {
@@ -172,10 +173,10 @@
         }
         
         .route-item {
-            background: rgba(255,255,255,0.1);
+            background: rgba(255, 182, 193, 0.2);
             padding: 10px;
             border-radius: 8px;
-            border-left: 4px solid #ff6b35;
+            border-left: 4px solid #FF1493;
         }
         
         .complexity-badge {
@@ -187,9 +188,9 @@
             margin-left: 10px;
         }
         
-        .simple { background: #4CAF50; }
-        .intermediate { background: #FF9800; }
-        .advanced { background: #F44336; }
+        .simple { background: #FF69B4; color: white; }
+        .intermediate { background: #DA70D6; color: white; }
+        .advanced { background: #8B008B; color: white; }
         
         .hidden {
             display: none;
@@ -362,6 +363,589 @@
                     qb: { x: 400, y: 300, startX: 400, startY: 300, label: 'QB', route: [], hasBall: true },
                     center: { x: 400, y: 280, startX: 400, startY: 280, label: 'C', route: [], hasBall: false },
                     rb: { x: 350, y: 320, startX: 350, startY: 320, label: 'RB', route: [
+                        {x: 350, y: 320}, {x: 300, y: 300}, {x: 250, y: 280}
+                    ], hasBall: false},
+                    wr1: { x: 600, y: 280, startX: 600, startY: 280, label: 'WR1', route: [
+                        {x: 600, y: 280}, {x: 580, y: 250}, {x: 560, y: 220}
+                    ], hasBall: false},
+                    wr2: { x: 550, y: 280, startX: 550, startY: 280, label: 'WR2', route: [
+                        {x: 550, y: 280}, {x: 480, y: 250}, {x: 400, y: 220}
+                    ], hasBall: false},
+                    wr3: { 
+                        x: 500, y: 280, startX: 500, startY: 280,
+                        motionX: 300, motionY: 320, label: 'WR3', 
+                        route: [{x: 300, y: 320}, {x: 350, y: 200}, {x: 400, y: 150}], 
+                        hasBall: false
+                    }
+                },
+                routes: [
+                    "WR1: Corner route right",
+                    "WR2: Deep slant across middle (PRIMARY)",
+                    "WR3: Pre-snap motion, deep post route left",
+                    "RB: Checkdown route left",
+                    "QB: Quick progression through crossing routes",
+                    "Center: Quick out right (outlet)"
+                ]
+            },
+            
+            lightningStrike: {
+                name: "Lightning Strike",
+                type: "Double Move Deep Shot",
+                complexity: "advanced",
+                description: "Sluggo route beats aggressive man coverage",
+                passTarget: 'wr1',
+                passTime: 0.7,
+                players: {
+                    qb: { x: 400, y: 300, startX: 400, startY: 300, label: 'QB', route: [], hasBall: true },
+                    center: { x: 400, y: 280, startX: 400, startY: 280, label: 'C', route: [
+                        {x: 400, y: 280}, {x: 400, y: 260}, {x: 420, y: 240}
+                    ], hasBall: false },
+                    rb: { x: 450, y: 320, startX: 450, startY: 320, label: 'RB', route: [
+                        {x: 450, y: 320}, {x: 500, y: 300}, {x: 550, y: 280}
+                    ], hasBall: false},
+                    wr1: { x: 200, y: 280, startX: 200, startY: 280, label: 'WR1', route: [
+                        {x: 200, y: 280}, {x: 220, y: 260}, {x: 240, y: 240}, {x: 200, y: 150}
+                    ], hasBall: false},
+                    wr2: { x: 250, y: 280, startX: 250, startY: 280, label: 'WR2', route: [
+                        {x: 250, y: 280}, {x: 250, y: 250}, {x: 270, y: 220}
+                    ], hasBall: false},
+                    wr3: { x: 600, y: 280, startX: 600, startY: 280, label: 'WR3', route: [
+                        {x: 600, y: 280}, {x: 580, y: 250}, {x: 560, y: 220}
+                    ], hasBall: false}
+                },
+                routes: [
+                    "WR1: Sluggo route - slant fake then go (PRIMARY DEEP)",
+                    "WR2: Deep comeback (secondary)",
+                    "WR3: Out route (quick option)",
+                    "RB: Swing route right (checkdown)",
+                    "QB: 5-step drop, deep shot timing",
+                    "Center: Quick hitch (outlet)"
+                ]
+            },
+            
+            chaosTheory: {
+                name: "Chaos Theory",
+                type: "Bunch Formation Pick Plays",
+                complexity: "intermediate",
+                description: "Bunch creates confusion and natural separation",
+                passTarget: 'wr1',
+                passTime: 0.4,
+                players: {
+                    qb: { x: 400, y: 300, startX: 400, startY: 300, label: 'QB', route: [], hasBall: true },
+                    center: { x: 400, y: 280, startX: 400, startY: 280, label: 'C', route: [
+                        {x: 400, y: 280}, {x: 350, y: 270}, {x: 320, y: 260}
+                    ], hasBall: false },
+                    rb: { x: 350, y: 320, startX: 350, startY: 320, label: 'RB', route: [
+                        {x: 350, y: 320}, {x: 300, y: 300}, {x: 250, y: 280}
+                    ], hasBall: false},
+                    wr1: { x: 550, y: 280, startX: 550, startY: 280, label: 'WR1', route: [
+                        {x: 550, y: 280}, {x: 550, y: 250}, {x: 530, y: 220}
+                    ], hasBall: false},
+                    wr2: { x: 570, y: 280, startX: 570, startY: 280, label: 'WR2', route: [
+                        {x: 570, y: 280}, {x: 540, y: 250}, {x: 520, y: 220}
+                    ], hasBall: false},
+                    wr3: { x: 590, y: 280, startX: 590, startY: 280, label: 'WR3', route: [
+                        {x: 590, y: 280}, {x: 550, y: 200}, {x: 500, y: 150}
+                    ], hasBall: false}
+                },
+                routes: [
+                    "WR1: Comeback route through bunch (PRIMARY)",
+                    "WR2: Quick slant right (secondary)",
+                    "WR3: Deep post route (clear safety)",
+                    "RB: Swing route left (checkdown)",
+                    "QB: Quick ball delivery through bunch traffic",
+                    "Center: Quick hitch left (safety valve)"
+                ]
+            },
+            
+            timeWarp: {
+                name: "Time Warp",
+                type: "Bootleg Triple Option with Misdirection",
+                complexity: "advanced",
+                description: "Maximum misdirection with multiple passing options",
+                passTarget: 'wr3',
+                passTime: 0.6,
+                players: {
+                    qb: { x: 400, y: 300, startX: 400, startY: 300, label: 'QB', route: [
+                        {x: 400, y: 300}, {x: 420, y: 310}, {x: 350, y: 320}, {x: 300, y: 300}
+                    ], hasBall: true },
+                    center: { x: 400, y: 280, startX: 400, startY: 280, label: 'C', route: [
+                        {x: 400, y: 280}, {x: 350, y: 290}, {x: 300, y: 310}
+                    ], hasBall: false },
+                    rb: { x: 450, y: 320, startX: 450, startY: 320, label: 'RB', route: [
+                        {x: 450, y: 320}, {x: 500, y: 300}, {x: 550, y: 280}
+                    ], hasBall: false},
+                    wr1: { x: 600, y: 280, startX: 600, startY: 280, label: 'WR1', route: [
+                        {x: 600, y: 280}, {x: 600, y: 250}, {x: 580, y: 220}
+                    ], hasBall: false},
+                    wr2: { x: 250, y: 280, startX: 250, startY: 280, label: 'WR2', route: [
+                        {x: 250, y: 280}, {x: 280, y: 250}, {x: 320, y: 220}
+                    ], hasBall: false},
+                    wr3: { x: 200, y: 280, startX: 200, startY: 280, label: 'WR3', route: [
+                        {x: 200, y: 280}, {x: 180, y: 200}, {x: 160, y: 150}
+                    ], hasBall: false}
+                },
+                routes: [
+                    "WR1: Deep comeback right (backside)",
+                    "WR2: Deep slant left (secondary)",
+                    "WR3: Corner route left (PRIMARY HIGH)",
+                    "RB: Swing route right after fake",
+                    "QB: Play-action fake right, bootleg left",
+                    "Center: Trail QB on bootleg (late outlet)"
+                ]
+            }
+        };
+        
+        let trails = {};
+        let passingPhase = false;
+        let passingProgress = 0;
+        let passTarget = null;
+        
+        function initCanvas() {
+            // Draw field background
+            ctx.fillStyle = '#228B22';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            // Draw yard lines
+            ctx.strokeStyle = 'rgba(255, 182, 193, 0.8)';
+            ctx.lineWidth = 2;
+            for (let i = 0; i <= 8; i++) {
+                const y = (i * 50) + 50;
+                if (y < canvas.height) {
+                    ctx.beginPath();
+                    ctx.moveTo(0, y);
+                    ctx.lineTo(canvas.width, y);
+                    ctx.stroke();
+                }
+            }
+            
+            // Draw hash marks
+            ctx.lineWidth = 1;
+            for (let i = 1; i <= 7; i++) {
+                const y = (i * 50) + 50;
+                if (y < canvas.height) {
+                    ctx.beginPath();
+                    ctx.moveTo(canvas.width/2 - 20, y);
+                    ctx.lineTo(canvas.width/2 + 20, y);
+                    ctx.stroke();
+                }
+            }
+            
+            // Draw line of scrimmage
+            ctx.strokeStyle = '#FFB6C1';
+            ctx.lineWidth = 3;
+            ctx.beginPath();
+            ctx.moveTo(0, 320);
+            ctx.lineTo(canvas.width, 320);
+            ctx.stroke();
+        }
+        
+        function drawPlayer(player) {
+            // Draw trail if enabled
+            if (showTrails && trails[player.label]) {
+                ctx.strokeStyle = 'rgba(255, 20, 147, 0.6)';
+                ctx.lineWidth = 3;
+                ctx.beginPath();
+                for (let i = 0; i < trails[player.label].length; i++) {
+                    const point = trails[player.label][i];
+                    if (i === 0) {
+                        ctx.moveTo(point.x, point.y);
+                    } else {
+                        ctx.lineTo(point.x, point.y);
+                    }
+                }
+                ctx.stroke();
+            }
+            
+            // Draw route arrows
+            if (player.route && player.route.length > 1) {
+                drawRouteArrows(player.route, player.label);
+            }
+            
+            // Draw player circle with different colors for ball carrier
+            const gradient = ctx.createRadialGradient(player.x, player.y, 0, player.x, player.y, 20);
+            if (player.hasBall) {
+                gradient.addColorStop(0, '#FFB6C1');
+                gradient.addColorStop(1, '#FF69B4');
+            } else {
+                gradient.addColorStop(0, '#DA70D6');
+                gradient.addColorStop(1, '#8B008B');
+            }
+            
+            ctx.fillStyle = gradient;
+            ctx.beginPath();
+            ctx.arc(player.x, player.y, 20, 0, Math.PI * 2);
+            ctx.fill();
+            
+            // Draw player border
+            ctx.strokeStyle = player.hasBall ? '#FFB6C1' : '#fff';
+            ctx.lineWidth = player.hasBall ? 4 : 3;
+            ctx.stroke();
+            
+            // Draw football icon for ball carrier
+            if (player.hasBall) {
+                ctx.fillStyle = '#8B4513';
+                ctx.beginPath();
+                ctx.ellipse(player.x + 15, player.y - 15, 8, 5, 0, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.strokeStyle = '#fff';
+                ctx.lineWidth = 1;
+                ctx.stroke();
+                
+                // Football laces
+                ctx.strokeStyle = '#fff';
+                ctx.lineWidth = 1;
+                ctx.beginPath();
+                ctx.moveTo(player.x + 15, player.y - 18);
+                ctx.lineTo(player.x + 15, player.y - 12);
+                ctx.stroke();
+            }
+            
+            // Draw player label
+            ctx.fillStyle = '#fff';
+            ctx.font = 'bold 16px Arial';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText(player.label, player.x, player.y);
+        }
+        
+        function drawRouteArrows(route, playerLabel) {
+            if (route.length < 2) return;
+            
+            ctx.strokeStyle = 'rgba(255, 182, 193, 0.9)';
+            ctx.lineWidth = 2;
+            ctx.setLineDash([5, 5]);
+            
+            // Draw route line
+            ctx.beginPath();
+            ctx.moveTo(route[0].x, route[0].y);
+            for (let i = 1; i < route.length; i++) {
+                ctx.lineTo(route[i].x, route[i].y);
+            }
+            ctx.stroke();
+            
+            // Draw arrows at key points
+            for (let i = 1; i < route.length; i++) {
+                const start = route[i - 1];
+                const end = route[i];
+                const angle = Math.atan2(end.y - start.y, end.x - start.x);
+                
+                // Draw arrowhead
+                const arrowLength = 8;
+                const arrowWidth = 4;
+                
+                ctx.save();
+                ctx.translate(end.x, end.y);
+                ctx.rotate(angle);
+                
+                ctx.fillStyle = 'rgba(255, 182, 193, 0.9)';
+                ctx.beginPath();
+                ctx.moveTo(0, 0);
+                ctx.lineTo(-arrowLength, -arrowWidth);
+                ctx.lineTo(-arrowLength, arrowWidth);
+                ctx.closePath();
+                ctx.fill();
+                
+                ctx.restore();
+            }
+            
+            ctx.setLineDash([]);
+        }
+        
+        function drawPassingArc(fromPlayer, toPlayer, progress) {
+            const startX = fromPlayer.x;
+            const startY = fromPlayer.y;
+            const endX = toPlayer.x;
+            const endY = toPlayer.y;
+            
+            // Calculate arc height based on distance
+            const distance = Math.sqrt((endX - startX) ** 2 + (endY - startY) ** 2);
+            const arcHeight = Math.min(distance * 0.3, 60);
+            
+            // Control point for arc (midpoint raised)
+            const midX = (startX + endX) / 2;
+            const midY = (startY + endY) / 2 - arcHeight;
+            
+            // Calculate ball position along arc
+            const t = progress;
+            const ballX = (1 - t) * (1 - t) * startX + 2 * (1 - t) * t * midX + t * t * endX;
+            const ballY = (1 - t) * (1 - t) * startY + 2 * (1 - t) * t * midY + t * t * endY;
+            
+            // Draw arc trail
+            ctx.strokeStyle = 'rgba(255, 182, 193, 0.8)';
+            ctx.lineWidth = 3;
+            ctx.setLineDash([3, 3]);
+            ctx.beginPath();
+            ctx.moveTo(startX, startY);
+            ctx.quadraticCurveTo(midX, midY, endX, endY);
+            ctx.stroke();
+            ctx.setLineDash([]);
+            
+            // Draw football in flight
+            ctx.fillStyle = '#8B4513';
+            ctx.beginPath();
+            ctx.ellipse(ballX, ballY, 6, 4, 0, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.strokeStyle = '#fff';
+            ctx.lineWidth = 1;
+            ctx.stroke();
+            
+            // Football laces
+            ctx.strokeStyle = '#fff';
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(ballX, ballY - 3);
+            ctx.lineTo(ballX, ballY + 3);
+            ctx.stroke();
+        }
+        
+        function drawField() {
+            initCanvas();
+            
+            if (!currentPlay) return;
+            
+            // Draw all players
+            Object.values(currentPlay.players).forEach(player => {
+                drawPlayer(player);
+            });
+            
+            // Draw passing arc if in passing phase
+            if (passingPhase && passingProgress < 1) {
+                const qb = currentPlay.players.qb || currentPlay.players.QB;
+                const target = passTarget;
+                if (qb && target) {
+                    drawPassingArc(qb, target, passingProgress);
+                }
+            }
+        }
+        
+        function selectPlay(playName) {
+            // Remove active class from all buttons
+            document.querySelectorAll('.play-button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Add active class to selected button
+            event.target.classList.add('active');
+            
+            currentPlay = plays[playName];
+            
+            // Update UI
+            document.getElementById('currentPlayTitle').textContent = currentPlay.name;
+            document.getElementById('currentPlayType').innerHTML = 
+                currentPlay.type + `<span class="complexity-badge ${currentPlay.complexity}">${currentPlay.complexity.toUpperCase()}</span>`;
+            
+            // Update play info
+            const playInfoHTML = `
+                <h3>📋 ${currentPlay.name} - Play Breakdown</h3>
+                <p><strong>Description:</strong> ${currentPlay.description}</p>
+                <div class="route-legend">
+                    ${currentPlay.routes.map(route => `<div class="route-item">${route}</div>`).join('')}
+                </div>
+            `;
+            document.getElementById('playInfo').innerHTML = playInfoHTML;
+            
+            resetPlay();
+        }
+        
+        function resetPlay() {
+            if (animationId) {
+                cancelAnimationFrame(animationId);
+            }
+            
+            if (!currentPlay) return;
+            
+            isAnimating = false;
+            preSnapPhase = true;
+            passingPhase = false;
+            passingProgress = 0;
+            passTarget = null;
+            
+            // Reset player positions and ball possession
+            Object.keys(currentPlay.players).forEach(key => {
+                const player = currentPlay.players[key];
+                player.x = player.startX;
+                player.y = player.startY;
+                player.hasBall = (key === 'qb' || key === 'QB'); // QB starts with ball
+                trails[key] = [];
+            });
+            
+            drawField();
+        }
+        
+        function runPlay() {
+            if (isAnimating || !currentPlay) return;
+            
+            resetPlay();
+            isAnimating = true;
+            preSnapPhase = true;
+            
+            const preSnapDuration = 2000; // 2 seconds for pre-snap motion
+            const playDuration = 4000; // 4 seconds for actual play
+            const startTime = Date.now();
+            let playStartTime;
+            
+            function animate() {
+                const elapsed = Date.now() - startTime;
+                
+                if (preSnapPhase && elapsed < preSnapDuration) {
+                    // Pre-snap motion phase
+                    const motionProgress = elapsed / preSnapDuration;
+                    
+                    // Handle pre-snap motion for players that have it
+                    Object.keys(currentPlay.players).forEach(key => {
+                        const player = currentPlay.players[key];
+                        if (player.motionX !== undefined && player.motionY !== undefined) {
+                            const startX = player.startX;
+                            const startY = player.startY;
+                            const endX = player.motionX;
+                            const endY = player.motionY;
+                            
+                            player.x = startX + (endX - startX) * motionProgress;
+                            player.y = startY + (endY - startY) * motionProgress;
+                        }
+                    });
+                    
+                    drawField();
+                    
+                    // Add motion indicator text
+                    ctx.fillStyle = '#FFB6C1';
+                    ctx.font = 'bold 24px Arial';
+                    ctx.textAlign = 'center';
+                    ctx.fillText('PRE-SNAP MOTION', canvas.width/2, 50);
+                    
+                } else if (preSnapPhase) {
+                    // Transition from pre-snap to play
+                    preSnapPhase = false;
+                    playStartTime = Date.now();
+                }
+                
+                if (!preSnapPhase) {
+                    // Play execution phase
+                    const playElapsed = Date.now() - playStartTime;
+                    const progress = Math.min(playElapsed / playDuration, 1);
+                    
+                    // Clear and redraw field
+                    drawField();
+                    
+                    // Add snap indicator
+                    if (progress < 0.1) {
+                        ctx.fillStyle = '#FF1493';
+                        ctx.font = 'bold 24px Arial';
+                        ctx.textAlign = 'center';
+                        ctx.fillText('HIKE!', canvas.width/2, 50);
+                    }
+                    
+                    // Animate each player along their route
+                    Object.keys(currentPlay.players).forEach(key => {
+                        const player = currentPlay.players[key];
+                        if (player.route && player.route.length > 1) {
+                            const routeProgress = progress * (player.route.length - 1);
+                            const segmentIndex = Math.floor(routeProgress);
+                            const segmentProgress = routeProgress - segmentIndex;
+                            
+                            if (segmentIndex < player.route.length - 1) {
+                                const start = player.route[segmentIndex];
+                                const end = player.route[segmentIndex + 1];
+                                
+                                player.x = start.x + (end.x - start.x) * segmentProgress;
+                                player.y = start.y + (end.y - start.y) * segmentProgress;
+                                
+                                // Add to trail
+                                if (showTrails) {
+                                    trails[key].push({x: player.x, y: player.y});
+                                    if (trails[key].length > 20) {
+                                        trails[key].shift();
+                                    }
+                                }
+                            }
+                        }
+                    });
+                    
+                    // Handle ball transfer logic based on play type
+                    if (currentPlay.passTarget && currentPlay.passTime) {
+                        // Passing plays
+                        if (progress >= currentPlay.passTime && !passingPhase) {
+                            // Start passing phase
+                            passingPhase = true;
+                            passingProgress = 0;
+                            passTarget = currentPlay.players[currentPlay.passTarget];
+                            
+                            // QB no longer has ball during pass
+                            Object.keys(currentPlay.players).forEach(key => {
+                                if (key === 'qb' || key === 'QB') {
+                                    currentPlay.players[key].hasBall = false;
+                                }
+                            });
+                        }
+                        
+                        if (passingPhase) {
+                            // Update passing progress
+                            const passingDuration = 1000; // 1 second for pass flight
+                            passingProgress = Math.min((playElapsed - (currentPlay.passTime * playDuration)) / passingDuration, 1);
+                            
+                            // When pass completes, receiver gets ball
+                            if (passingProgress >= 1) {
+                                passingPhase = false;
+                                if (passTarget) {
+                                    passTarget.hasBall = true;
+                                }
+                            }
+                        }
+                    } else {
+                        // Running plays - transfer ball at 35%
+                        if (progress > 0.35) {
+                            Object.keys(currentPlay.players).forEach(key => {
+                                if (key === 'qb' || key === 'QB') {
+                                    currentPlay.players[key].hasBall = false;
+                                }
+                            });
+                            // Find the running back or ball carrier
+                            if (currentPlay.players.player4) currentPlay.players.player4.hasBall = true;
+                            if (currentPlay.players.rb) currentPlay.players.rb.hasBall = true;
+                            if (currentPlay.players.rb2) currentPlay.players.rb2.hasBall = true;
+                        }
+                    }
+                    
+                    if (progress >= 1) {
+                        isAnimating = false;
+                        return;
+                    }
+                }
+                
+                animationId = requestAnimationFrame(animate);
+            }
+            
+            animate();
+        }
+        
+        function toggleTrails() {
+            showTrails = !showTrails;
+            if (!showTrails) {
+                Object.keys(trails).forEach(key => {
+                    trails[key] = [];
+                });
+            }
+            drawField();
+        }
+        
+        // Initialize the field
+        drawField();
+        
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            drawField();
+        });
+        
+        // Auto-select first play
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.querySelector('.play-button').click();
+            }, 500);
+        });
+    </script>
+</body>
+</html>
                         {x: 350, y: 320}, {x: 300, y: 310}, {x: 320, y: 300}, {x: 250, y: 280}, {x: 180, y: 200}
                     ], hasBall: false},
                     wr1: { x: 600, y: 280, startX: 600, startY: 280, label: 'WR1', route: [
@@ -546,586 +1130,3 @@
                         {x: 400, y: 280}, {x: 450, y: 270}, {x: 480, y: 260}
                     ], hasBall: false },
                     rb: { x: 350, y: 320, startX: 350, startY: 320, label: 'RB', route: [
-                        {x: 350, y: 320}, {x: 300, y: 300}, {x: 250, y: 280}
-                    ], hasBall: false},
-                    wr1: { x: 600, y: 280, startX: 600, startY: 280, label: 'WR1', route: [
-                        {x: 600, y: 280}, {x: 580, y: 250}, {x: 560, y: 220}
-                    ], hasBall: false},
-                    wr2: { x: 550, y: 280, startX: 550, startY: 280, label: 'WR2', route: [
-                        {x: 550, y: 280}, {x: 480, y: 250}, {x: 400, y: 220}
-                    ], hasBall: false},
-                    wr3: { 
-                        x: 500, y: 280, startX: 500, startY: 280,
-                        motionX: 300, motionY: 320, label: 'WR3', 
-                        route: [{x: 300, y: 320}, {x: 350, y: 200}, {x: 400, y: 150}], 
-                        hasBall: false
-                    }
-                },
-                routes: [
-                    "WR1: Corner route right",
-                    "WR2: Deep slant across middle (PRIMARY)",
-                    "WR3: Pre-snap motion, deep post route left",
-                    "RB: Checkdown route left",
-                    "QB: Quick progression through crossing routes",
-                    "Center: Quick out right (outlet)"
-                ]
-            },
-            
-            lightningStrike: {
-                name: "Lightning Strike",
-                type: "Double Move Deep Shot",
-                complexity: "advanced",
-                description: "Sluggo route beats aggressive man coverage",
-                passTarget: 'wr1',
-                passTime: 0.7,
-                players: {
-                    qb: { x: 400, y: 300, startX: 400, startY: 300, label: 'QB', route: [], hasBall: true },
-                    center: { x: 400, y: 280, startX: 400, startY: 280, label: 'C', route: [
-                        {x: 400, y: 280}, {x: 400, y: 260}, {x: 420, y: 240}
-                    ], hasBall: false },
-                    rb: { x: 450, y: 320, startX: 450, startY: 320, label: 'RB', route: [
-                        {x: 450, y: 320}, {x: 500, y: 300}, {x: 550, y: 280}
-                    ], hasBall: false},
-                    wr1: { x: 200, y: 280, startX: 200, startY: 280, label: 'WR1', route: [
-                        {x: 200, y: 280}, {x: 220, y: 260}, {x: 240, y: 240}, {x: 200, y: 150}
-                    ], hasBall: false},
-                    wr2: { x: 250, y: 280, startX: 250, startY: 280, label: 'WR2', route: [
-                        {x: 250, y: 280}, {x: 250, y: 250}, {x: 270, y: 220}
-                    ], hasBall: false},
-                    wr3: { x: 600, y: 280, startX: 600, startY: 280, label: 'WR3', route: [
-                        {x: 600, y: 280}, {x: 580, y: 250}, {x: 560, y: 220}
-                    ], hasBall: false}
-                },
-                routes: [
-                    "WR1: Sluggo route - slant fake then go (PRIMARY DEEP)",
-                    "WR2: Deep comeback (secondary)",
-                    "WR3: Out route (quick option)",
-                    "RB: Swing route right (checkdown)",
-                    "QB: 5-step drop, deep shot timing",
-                    "Center: Quick hitch (outlet)"
-                ]
-            },
-            
-            chaosTheory: {
-                name: "Chaos Theory",
-                type: "Bunch Formation Pick Plays",
-                complexity: "intermediate",
-                description: "Bunch creates confusion and natural separation",
-                passTarget: 'wr1',
-                passTime: 0.4,
-                players: {
-                    qb: { x: 400, y: 300, startX: 400, startY: 300, label: 'QB', route: [], hasBall: true },
-                    center: { x: 400, y: 280, startX: 400, startY: 280, label: 'C', route: [
-                        {x: 400, y: 280}, {x: 350, y: 270}, {x: 320, y: 260}
-                    ], hasBall: false },
-                    rb: { x: 350, y: 320, startX: 350, startY: 320, label: 'RB', route: [
-                        {x: 350, y: 320}, {x: 300, y: 300}, {x: 250, y: 280}
-                    ], hasBall: false},
-                    wr1: { x: 550, y: 280, startX: 550, startY: 280, label: 'WR1', route: [
-                        {x: 550, y: 280}, {x: 550, y: 250}, {x: 530, y: 220}
-                    ], hasBall: false},
-                    wr2: { x: 570, y: 280, startX: 570, startY: 280, label: 'WR2', route: [
-                        {x: 570, y: 280}, {x: 540, y: 250}, {x: 520, y: 220}
-                    ], hasBall: false},
-                    wr3: { x: 590, y: 280, startX: 590, startY: 280, label: 'WR3', route: [
-                        {x: 590, y: 280}, {x: 550, y: 200}, {x: 500, y: 150}
-                    ], hasBall: false}
-                },
-                routes: [
-                    "WR1: Comeback route through bunch (PRIMARY)",
-                    "WR2: Quick slant right (secondary)",
-                    "WR3: Deep post route (clear safety)",
-                    "RB: Swing route left (checkdown)",
-                    "QB: Quick ball delivery through bunch traffic",
-                    "Center: Quick hitch left (safety valve)"
-                ]
-            },
-            
-            timeWarp: {
-                name: "Time Warp",
-                type: "Bootleg Triple Option with Misdirection",
-                complexity: "advanced",
-                description: "Maximum misdirection with multiple passing options",
-                passTarget: 'wr3',
-                passTime: 0.6,
-                players: {
-                    qb: { x: 400, y: 300, startX: 400, startY: 300, label: 'QB', route: [
-                        {x: 400, y: 300}, {x: 420, y: 310}, {x: 350, y: 320}, {x: 300, y: 300}
-                    ], hasBall: true },
-                    center: { x: 400, y: 280, startX: 400, startY: 280, label: 'C', route: [
-                        {x: 400, y: 280}, {x: 350, y: 290}, {x: 300, y: 310}
-                    ], hasBall: false },
-                    rb: { x: 450, y: 320, startX: 450, startY: 320, label: 'RB', route: [
-                        {x: 450, y: 320}, {x: 500, y: 300}, {x: 550, y: 280}
-                    ], hasBall: false},
-                    wr1: { x: 600, y: 280, startX: 600, startY: 280, label: 'WR1', route: [
-                        {x: 600, y: 280}, {x: 600, y: 250}, {x: 580, y: 220}
-                    ], hasBall: false},
-                    wr2: { x: 250, y: 280, startX: 250, startY: 280, label: 'WR2', route: [
-                        {x: 250, y: 280}, {x: 280, y: 250}, {x: 320, y: 220}
-                    ], hasBall: false},
-                    wr3: { x: 200, y: 280, startX: 200, startY: 280, label: 'WR3', route: [
-                        {x: 200, y: 280}, {x: 180, y: 200}, {x: 160, y: 150}
-                    ], hasBall: false}
-                },
-                routes: [
-                    "WR1: Deep comeback right (backside)",
-                    "WR2: Deep slant left (secondary)",
-                    "WR3: Corner route left (PRIMARY HIGH)",
-                    "RB: Swing route right after fake",
-                    "QB: Play-action fake right, bootleg left",
-                    "Center: Trail QB on bootleg (late outlet)"
-                ]
-            }
-        };
-        
-        let trails = {};
-        let passingPhase = false;
-        let passingProgress = 0;
-        let passTarget = null;
-        
-        function initCanvas() {
-            // Draw field background
-            ctx.fillStyle = '#228B22';
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-            
-            // Draw yard lines
-            ctx.strokeStyle = 'rgba(255, 255, 255, 0.6)';
-            ctx.lineWidth = 2;
-            for (let i = 0; i <= 8; i++) {
-                const y = (i * 50) + 50;
-                if (y < canvas.height) {
-                    ctx.beginPath();
-                    ctx.moveTo(0, y);
-                    ctx.lineTo(canvas.width, y);
-                    ctx.stroke();
-                }
-            }
-            
-            // Draw hash marks
-            ctx.lineWidth = 1;
-            for (let i = 1; i <= 7; i++) {
-                const y = (i * 50) + 50;
-                if (y < canvas.height) {
-                    ctx.beginPath();
-                    ctx.moveTo(canvas.width/2 - 20, y);
-                    ctx.lineTo(canvas.width/2 + 20, y);
-                    ctx.stroke();
-                }
-            }
-            
-            // Draw line of scrimmage
-            ctx.strokeStyle = '#FFD700';
-            ctx.lineWidth = 3;
-            ctx.beginPath();
-            ctx.moveTo(0, 320);
-            ctx.lineTo(canvas.width, 320);
-            ctx.stroke();
-        }
-        
-        function drawPlayer(player) {
-            // Draw trail if enabled
-            if (showTrails && trails[player.label]) {
-                ctx.strokeStyle = 'rgba(255, 107, 53, 0.6)';
-                ctx.lineWidth = 3;
-                ctx.beginPath();
-                for (let i = 0; i < trails[player.label].length; i++) {
-                    const point = trails[player.label][i];
-                    if (i === 0) {
-                        ctx.moveTo(point.x, point.y);
-                    } else {
-                        ctx.lineTo(point.x, point.y);
-                    }
-                }
-                ctx.stroke();
-            }
-            
-            // Draw route arrows
-            if (player.route && player.route.length > 1) {
-                drawRouteArrows(player.route, player.label);
-            }
-            
-            // Draw player circle with different colors for ball carrier
-            const gradient = ctx.createRadialGradient(player.x, player.y, 0, player.x, player.y, 20);
-            if (player.hasBall) {
-                gradient.addColorStop(0, '#FFD700');
-                gradient.addColorStop(1, '#FFA500');
-            } else {
-                gradient.addColorStop(0, '#ff8c42');
-                gradient.addColorStop(1, '#ff6b35');
-            }
-            
-            ctx.fillStyle = gradient;
-            ctx.beginPath();
-            ctx.arc(player.x, player.y, 20, 0, Math.PI * 2);
-            ctx.fill();
-            
-            // Draw player border
-            ctx.strokeStyle = player.hasBall ? '#FFD700' : '#fff';
-            ctx.lineWidth = player.hasBall ? 4 : 3;
-            ctx.stroke();
-            
-            // Draw football icon for ball carrier
-            if (player.hasBall) {
-                ctx.fillStyle = '#8B4513';
-                ctx.beginPath();
-                ctx.ellipse(player.x + 15, player.y - 15, 8, 5, 0, 0, Math.PI * 2);
-                ctx.fill();
-                ctx.strokeStyle = '#fff';
-                ctx.lineWidth = 1;
-                ctx.stroke();
-                
-                // Football laces
-                ctx.strokeStyle = '#fff';
-                ctx.lineWidth = 1;
-                ctx.beginPath();
-                ctx.moveTo(player.x + 15, player.y - 18);
-                ctx.lineTo(player.x + 15, player.y - 12);
-                ctx.stroke();
-            }
-            
-            // Draw player label
-            ctx.fillStyle = '#fff';
-            ctx.font = 'bold 16px Arial';
-            ctx.textAlign = 'center';
-            ctx.textBaseline = 'middle';
-            ctx.fillText(player.label, player.x, player.y);
-        }
-        
-        function drawRouteArrows(route, playerLabel) {
-            if (route.length < 2) return;
-            
-            ctx.strokeStyle = 'rgba(255, 255, 255, 0.7)';
-            ctx.lineWidth = 2;
-            ctx.setLineDash([5, 5]);
-            
-            // Draw route line
-            ctx.beginPath();
-            ctx.moveTo(route[0].x, route[0].y);
-            for (let i = 1; i < route.length; i++) {
-                ctx.lineTo(route[i].x, route[i].y);
-            }
-            ctx.stroke();
-            
-            // Draw arrows at key points
-            for (let i = 1; i < route.length; i++) {
-                const start = route[i - 1];
-                const end = route[i];
-                const angle = Math.atan2(end.y - start.y, end.x - start.x);
-                
-                // Draw arrowhead
-                const arrowLength = 8;
-                const arrowWidth = 4;
-                
-                ctx.save();
-                ctx.translate(end.x, end.y);
-                ctx.rotate(angle);
-                
-                ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
-                ctx.beginPath();
-                ctx.moveTo(0, 0);
-                ctx.lineTo(-arrowLength, -arrowWidth);
-                ctx.lineTo(-arrowLength, arrowWidth);
-                ctx.closePath();
-                ctx.fill();
-                
-                ctx.restore();
-            }
-            
-            ctx.setLineDash([]);
-        }
-        
-        function drawPassingArc(fromPlayer, toPlayer, progress) {
-            const startX = fromPlayer.x;
-            const startY = fromPlayer.y;
-            const endX = toPlayer.x;
-            const endY = toPlayer.y;
-            
-            // Calculate arc height based on distance
-            const distance = Math.sqrt((endX - startX) ** 2 + (endY - startY) ** 2);
-            const arcHeight = Math.min(distance * 0.3, 60);
-            
-            // Control point for arc (midpoint raised)
-            const midX = (startX + endX) / 2;
-            const midY = (startY + endY) / 2 - arcHeight;
-            
-            // Calculate ball position along arc
-            const t = progress;
-            const ballX = (1 - t) * (1 - t) * startX + 2 * (1 - t) * t * midX + t * t * endX;
-            const ballY = (1 - t) * (1 - t) * startY + 2 * (1 - t) * t * midY + t * t * endY;
-            
-            // Draw arc trail
-            ctx.strokeStyle = 'rgba(255, 215, 0, 0.6)';
-            ctx.lineWidth = 3;
-            ctx.setLineDash([3, 3]);
-            ctx.beginPath();
-            ctx.moveTo(startX, startY);
-            ctx.quadraticCurveTo(midX, midY, endX, endY);
-            ctx.stroke();
-            ctx.setLineDash([]);
-            
-            // Draw football in flight
-            ctx.fillStyle = '#8B4513';
-            ctx.beginPath();
-            ctx.ellipse(ballX, ballY, 6, 4, 0, 0, Math.PI * 2);
-            ctx.fill();
-            ctx.strokeStyle = '#fff';
-            ctx.lineWidth = 1;
-            ctx.stroke();
-            
-            // Football laces
-            ctx.strokeStyle = '#fff';
-            ctx.lineWidth = 1;
-            ctx.beginPath();
-            ctx.moveTo(ballX, ballY - 3);
-            ctx.lineTo(ballX, ballY + 3);
-            ctx.stroke();
-        }
-        
-        function drawField() {
-            initCanvas();
-            
-            if (!currentPlay) return;
-            
-            // Draw all players
-            Object.values(currentPlay.players).forEach(player => {
-                drawPlayer(player);
-            });
-            
-            // Draw passing arc if in passing phase
-            if (passingPhase && passingProgress < 1) {
-                const qb = currentPlay.players.qb || currentPlay.players.QB;
-                const target = passTarget;
-                if (qb && target) {
-                    drawPassingArc(qb, target, passingProgress);
-                }
-            }
-        }
-        
-        function selectPlay(playName) {
-            // Remove active class from all buttons
-            document.querySelectorAll('.play-button').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            
-            // Add active class to selected button
-            event.target.classList.add('active');
-            
-            currentPlay = plays[playName];
-            
-            // Update UI
-            document.getElementById('currentPlayTitle').textContent = currentPlay.name;
-            document.getElementById('currentPlayType').innerHTML = 
-                currentPlay.type + `<span class="complexity-badge ${currentPlay.complexity}">${currentPlay.complexity.toUpperCase()}</span>`;
-            
-            // Update play info
-            const playInfoHTML = `
-                <h3>📋 ${currentPlay.name} - Play Breakdown</h3>
-                <p><strong>Description:</strong> ${currentPlay.description}</p>
-                <div class="route-legend">
-                    ${currentPlay.routes.map(route => `<div class="route-item">${route}</div>`).join('')}
-                </div>
-            `;
-            document.getElementById('playInfo').innerHTML = playInfoHTML;
-            
-            resetPlay();
-        }
-        
-        function resetPlay() {
-            if (animationId) {
-                cancelAnimationFrame(animationId);
-            }
-            
-            if (!currentPlay) return;
-            
-            isAnimating = false;
-            preSnapPhase = true;
-            passingPhase = false;
-            passingProgress = 0;
-            passTarget = null;
-            
-            // Reset player positions and ball possession
-            Object.keys(currentPlay.players).forEach(key => {
-                const player = currentPlay.players[key];
-                player.x = player.startX;
-                player.y = player.startY;
-                player.hasBall = (key === 'qb' || key === 'QB'); // QB starts with ball
-                trails[key] = [];
-            });
-            
-            drawField();
-        }
-        
-        function runPlay() {
-            if (isAnimating || !currentPlay) return;
-            
-            resetPlay();
-            isAnimating = true;
-            preSnapPhase = true;
-            
-            const preSnapDuration = 2000; // 2 seconds for pre-snap motion
-            const playDuration = 4000; // 4 seconds for actual play
-            const startTime = Date.now();
-            let playStartTime;
-            
-            function animate() {
-                const elapsed = Date.now() - startTime;
-                
-                if (preSnapPhase && elapsed < preSnapDuration) {
-                    // Pre-snap motion phase
-                    const motionProgress = elapsed / preSnapDuration;
-                    
-                    // Handle pre-snap motion for players that have it
-                    Object.keys(currentPlay.players).forEach(key => {
-                        const player = currentPlay.players[key];
-                        if (player.motionX !== undefined && player.motionY !== undefined) {
-                            const startX = player.startX;
-                            const startY = player.startY;
-                            const endX = player.motionX;
-                            const endY = player.motionY;
-                            
-                            player.x = startX + (endX - startX) * motionProgress;
-                            player.y = startY + (endY - startY) * motionProgress;
-                        }
-                    });
-                    
-                    drawField();
-                    
-                    // Add motion indicator text
-                    ctx.fillStyle = '#FFD700';
-                    ctx.font = 'bold 24px Arial';
-                    ctx.textAlign = 'center';
-                    ctx.fillText('PRE-SNAP MOTION', canvas.width/2, 50);
-                    
-                } else if (preSnapPhase) {
-                    // Transition from pre-snap to play
-                    preSnapPhase = false;
-                    playStartTime = Date.now();
-                }
-                
-                if (!preSnapPhase) {
-                    // Play execution phase
-                    const playElapsed = Date.now() - playStartTime;
-                    const progress = Math.min(playElapsed / playDuration, 1);
-                    
-                    // Clear and redraw field
-                    drawField();
-                    
-                    // Add snap indicator
-                    if (progress < 0.1) {
-                        ctx.fillStyle = '#FF4500';
-                        ctx.font = 'bold 24px Arial';
-                        ctx.textAlign = 'center';
-                        ctx.fillText('HIKE!', canvas.width/2, 50);
-                    }
-                    
-                    // Animate each player along their route
-                    Object.keys(currentPlay.players).forEach(key => {
-                        const player = currentPlay.players[key];
-                        if (player.route && player.route.length > 1) {
-                            const routeProgress = progress * (player.route.length - 1);
-                            const segmentIndex = Math.floor(routeProgress);
-                            const segmentProgress = routeProgress - segmentIndex;
-                            
-                            if (segmentIndex < player.route.length - 1) {
-                                const start = player.route[segmentIndex];
-                                const end = player.route[segmentIndex + 1];
-                                
-                                player.x = start.x + (end.x - start.x) * segmentProgress;
-                                player.y = start.y + (end.y - start.y) * segmentProgress;
-                                
-                                // Add to trail
-                                if (showTrails) {
-                                    trails[key].push({x: player.x, y: player.y});
-                                    if (trails[key].length > 20) {
-                                        trails[key].shift();
-                                    }
-                                }
-                            }
-                        }
-                    });
-                    
-                    // Handle ball transfer logic based on play type
-                    if (currentPlay.passTarget && currentPlay.passTime) {
-                        // Passing plays
-                        if (progress >= currentPlay.passTime && !passingPhase) {
-                            // Start passing phase
-                            passingPhase = true;
-                            passingProgress = 0;
-                            passTarget = currentPlay.players[currentPlay.passTarget];
-                            
-                            // QB no longer has ball during pass
-                            Object.keys(currentPlay.players).forEach(key => {
-                                if (key === 'qb' || key === 'QB') {
-                                    currentPlay.players[key].hasBall = false;
-                                }
-                            });
-                        }
-                        
-                        if (passingPhase) {
-                            // Update passing progress
-                            const passingDuration = 1000; // 1 second for pass flight
-                            passingProgress = Math.min((playElapsed - (currentPlay.passTime * playDuration)) / passingDuration, 1);
-                            
-                            // When pass completes, receiver gets ball
-                            if (passingProgress >= 1) {
-                                passingPhase = false;
-                                if (passTarget) {
-                                    passTarget.hasBall = true;
-                                }
-                            }
-                        }
-                    } else {
-                        // Running plays - transfer ball at 35%
-                        if (progress > 0.35) {
-                            Object.keys(currentPlay.players).forEach(key => {
-                                if (key === 'qb' || key === 'QB') {
-                                    currentPlay.players[key].hasBall = false;
-                                }
-                            });
-                            // Find the running back or ball carrier
-                            if (currentPlay.players.player4) currentPlay.players.player4.hasBall = true;
-                            if (currentPlay.players.rb) currentPlay.players.rb.hasBall = true;
-                            if (currentPlay.players.rb2) currentPlay.players.rb2.hasBall = true;
-                        }
-                    }
-                    
-                    if (progress >= 1) {
-                        isAnimating = false;
-                        return;
-                    }
-                }
-                
-                animationId = requestAnimationFrame(animate);
-            }
-            
-            animate();
-        }
-        
-        function toggleTrails() {
-            showTrails = !showTrails;
-            if (!showTrails) {
-                Object.keys(trails).forEach(key => {
-                    trails[key] = [];
-                });
-            }
-            drawField();
-        }
-        
-        // Initialize the field
-        drawField();
-        
-        // Handle window resize
-        window.addEventListener('resize', () => {
-            drawField();
-        });
-        
-        // Auto-select first play
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                document.querySelector('.play-button').click();
-            }, 500);
-        });
-    </script>
-</body>
-</html>

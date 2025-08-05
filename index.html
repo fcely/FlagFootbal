@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Touchdown Divas (CELY-MARTINEZ) </title>
+    <title>Touchdown Divas </title>
     <style>
         * {
             margin: 0;
@@ -16,6 +16,71 @@
             background: linear-gradient(135deg, #8B008B, #DA70D6, #FF69B4);
             color: white;
             min-height: 100vh;
+        }
+        
+        .password-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #8B008B, #DA70D6, #FF69B4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        
+        .password-container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 182, 193, 0.3);
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(139, 0, 139, 0.3);
+        }
+        
+        .password-container h2 {
+            color: #FFB6C1;
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+        
+        .password-container input {
+            padding: 15px;
+            font-size: 18px;
+            border: none;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.9);
+            color: #8B008B;
+            margin: 10px;
+            width: 250px;
+            text-align: center;
+        }
+        
+        .password-container button {
+            padding: 15px 30px;
+            font-size: 18px;
+            border: none;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #FF1493, #FF69B4);
+            color: white;
+            cursor: pointer;
+            margin: 10px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .password-container button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 20, 147, 0.4);
+        }
+        
+        .error-message {
+            color: #FF6B6B;
+            margin-top: 10px;
+            font-weight: bold;
         }
         
         .container {
@@ -218,8 +283,22 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>🏈 Touchdown Divas (CELY-MARTINEZ)</h1>
+    <!-- Password Overlay -->
+    <div class="password-overlay" id="passwordOverlay">
+        <div class="password-container">
+            <h2>🏈 Touchdown Divas Access</h2>
+            <p>Enter the team password to view the playbook:</p>
+            <input type="password" id="passwordInput" placeholder="Enter password..." />
+            <br>
+            <button onclick="checkPassword()">Enter Playbook</button>
+            <div class="error-message" id="errorMessage"></div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container" id="mainContent" style="display: none;">
+        <h1>🏈 Touchdown Divas</h1>
+        <h4> Cely-Martinez Inc All rights reserved</h4>
         <p style="text-align: center; font-size: 1.2em; margin-bottom: 30px; opacity: 0.9;">
             Fall 2025 Playbook
         </p>
@@ -274,6 +353,38 @@
     </div>
 
     <script>
+        // Password Protection
+        function checkPassword() {
+            const password = document.getElementById('passwordInput').value;
+            const errorMessage = document.getElementById('errorMessage');
+            
+            if (password === 'divas2025') {
+                document.getElementById('passwordOverlay').style.display = 'none';
+                document.getElementById('mainContent').style.display = 'block';
+                initializePlaybook();
+            } else {
+                errorMessage.textContent = 'Incorrect password. Please try again.';
+                document.getElementById('passwordInput').value = '';
+            }
+        }
+        
+        // Allow Enter key to submit password
+        document.getElementById('passwordInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                checkPassword();
+            }
+        });
+        
+        function initializePlaybook() {
+            // Initialize the field
+            drawField();
+            
+            // Auto-select first play
+            setTimeout(() => {
+                document.querySelector('.play-button').click();
+            }, 500);
+        }
+
         const canvas = document.getElementById('field');
         const ctx = canvas.getContext('2d');
         
@@ -362,6 +473,189 @@
                 players: {
                     qb: { x: 400, y: 300, startX: 400, startY: 300, label: 'QB', route: [], hasBall: true },
                     center: { x: 400, y: 280, startX: 400, startY: 280, label: 'C', route: [], hasBall: false },
+                    rb: { x: 350, y: 320, startX: 350, startY: 320, label: 'RB', route: [
+                        {x: 350, y: 320}, {x: 300, y: 310}, {x: 320, y: 300}, {x: 250, y: 280}, {x: 180, y: 200}
+                    ], hasBall: false},
+                    wr1: { x: 600, y: 280, startX: 600, startY: 280, label: 'WR1', route: [
+                        {x: 600, y: 280}, {x: 550, y: 200}, {x: 500, y: 150}
+                    ], hasBall: false},
+                    wr2: { x: 550, y: 280, startX: 550, startY: 280, label: 'WR2', route: [
+                        {x: 550, y: 280}, {x: 500, y: 250}, {x: 450, y: 200}
+                    ], hasBall: false},
+                    wr3: { 
+                        x: 500, y: 280, startX: 500, startY: 280,
+                        motionX: 380, motionY: 310, label: 'WR3', 
+                        route: [{x: 380, y: 310}, {x: 320, y: 300}, {x: 280, y: 280}, {x: 240, y: 200}], 
+                        hasBall: false
+                    }
+                },
+                routes: [
+                    "RB: Gets handoff, fakes reverse to WR3, keeps ball left",
+                    "WR1: Deep post route",
+                    "WR2: Deep slant right",
+                    "WR3: Pre-snap motion, reverse fake, continue upfield",
+                    "QB: Handoff to RB",
+                    "Center: Quick out left"
+                ]
+            },
+            
+            tornadoTwist: {
+                name: "Tornado Twist",
+                type: "Bootleg Run with Play-Action Fake",
+                complexity: "intermediate",
+                description: "Triple level deception with bootleg action",
+                players: {
+                    qb: { x: 400, y: 300, startX: 400, startY: 300, label: 'QB', route: [
+                        {x: 400, y: 300}, {x: 420, y: 310}, {x: 380, y: 320}, {x: 350, y: 300}
+                    ], hasBall: true },
+                    center: { x: 400, y: 280, startX: 400, startY: 280, label: 'C', route: [
+                        {x: 400, y: 280}, {x: 350, y: 270}, {x: 300, y: 260}
+                    ], hasBall: false },
+                    rb: { x: 400, y: 340, startX: 400, startY: 340, label: 'RB', route: [
+                        {x: 400, y: 340}, {x: 420, y: 330}, {x: 380, y: 320}, {x: 320, y: 300}, {x: 250, y: 280}, {x: 180, y: 200}
+                    ], hasBall: false},
+                    wr1: { x: 200, y: 280, startX: 200, startY: 280, label: 'WR1', route: [
+                        {x: 200, y: 280}, {x: 200, y: 250}, {x: 220, y: 220}
+                    ], hasBall: false},
+                    wr2: { x: 600, y: 280, startX: 600, startY: 280, label: 'WR2', route: [
+                        {x: 600, y: 280}, {x: 580, y: 200}, {x: 560, y: 150}
+                    ], hasBall: false},
+                    wr3: { x: 550, y: 280, startX: 550, startY: 280, label: 'WR3', route: [
+                        {x: 550, y: 280}, {x: 520, y: 250}, {x: 500, y: 220}
+                    ], hasBall: false}
+                },
+                routes: [
+                    "RB: Fake receive right, loop behind QB for real handoff left",
+                    "WR1: Deep comeback (outlet)",
+                    "WR2: Deep corner route",
+                    "WR3: Quick slant right",
+                    "QB: Fake handoff right, bootleg left, handoff to RB",
+                    "Center: Release left, lead block"
+                ]
+            },
+            
+            whirlpool: {
+                name: "Whirlpool",
+                type: "Jet Sweep with Counter Action",
+                complexity: "advanced",
+                description: "High-level misdirection using motion and counter",
+                players: {
+                    qb: { x: 400, y: 300, startX: 400, startY: 300, label: 'QB', route: [
+                        {x: 400, y: 300}, {x: 420, y: 310}
+                    ], hasBall: true },
+                    center: { x: 400, y: 280, startX: 400, startY: 280, label: 'C', route: [
+                        {x: 400, y: 280}, {x: 450, y: 270}, {x: 500, y: 260}
+                    ], hasBall: false },
+                    rb: { x: 350, y: 320, startX: 350, startY: 320, label: 'RB', route: [
+                        {x: 350, y: 320}, {x: 420, y: 310}, {x: 500, y: 300}, {x: 580, y: 280}, {x: 650, y: 200}
+                    ], hasBall: false},
+                    wr1: { x: 200, y: 280, startX: 200, startY: 280, label: 'WR1', route: [
+                        {x: 200, y: 280}, {x: 250, y: 200}, {x: 300, y: 150}
+                    ], hasBall: false},
+                    wr2: { 
+                        x: 600, y: 280, startX: 600, startY: 280,
+                        motionX: 300, motionY: 320, label: 'WR2', 
+                        route: [{x: 300, y: 320}, {x: 250, y: 300}, {x: 200, y: 280}, {x: 150, y: 200}], 
+                        hasBall: false
+                    },
+                    wr3: { x: 250, y: 280, startX: 250, startY: 280, label: 'WR3', route: [
+                        {x: 250, y: 280}, {x: 250, y: 250}, {x: 270, y: 220}
+                    ], hasBall: false}
+                },
+                routes: [
+                    "RB: Counter handoff right after jet fake",
+                    "WR1: Deep post route",
+                    "WR2: Pre-snap jet motion, fake handoff, continue left",
+                    "WR3: Quick hitch (outlet)",
+                    "QB: Fake jet handoff, counter to RB",
+                    "Center: Release right, lead block"
+                ]
+            },
+            
+            switchblade: {
+                name: "Switchblade",
+                type: "RPO Run with Multiple Fakes",
+                complexity: "advanced",
+                description: "Multiple options with built-in pass safety valves",
+                players: {
+                    qb: { x: 400, y: 300, startX: 400, startY: 300, label: 'QB', route: [
+                        {x: 400, y: 300}, {x: 380, y: 310}, {x: 350, y: 320}
+                    ], hasBall: true },
+                    center: { x: 400, y: 280, startX: 400, startY: 280, label: 'C', route: [
+                        {x: 400, y: 280}, {x: 350, y: 270}, {x: 300, y: 260}
+                    ], hasBall: false },
+                    rb: { x: 450, y: 320, startX: 450, startY: 320, label: 'RB', route: [
+                        {x: 450, y: 320}, {x: 380, y: 310}, {x: 320, y: 300}, {x: 250, y: 280}, {x: 180, y: 200}
+                    ], hasBall: false},
+                    wr1: { x: 550, y: 280, startX: 550, startY: 280, label: 'WR1', route: [
+                        {x: 550, y: 280}, {x: 520, y: 250}, {x: 500, y: 220}
+                    ], hasBall: false},
+                    wr2: { x: 580, y: 280, startX: 580, startY: 280, label: 'WR2', route: [
+                        {x: 580, y: 280}, {x: 580, y: 250}, {x: 600, y: 220}
+                    ], hasBall: false},
+                    wr3: { x: 610, y: 280, startX: 610, startY: 280, label: 'WR3', route: [
+                        {x: 610, y: 280}, {x: 610, y: 200}, {x: 610, y: 150}
+                    ], hasBall: false}
+                },
+                routes: [
+                    "RB: Multiple options - slant, fake, or pitch",
+                    "WR1: Quick slant right",
+                    "WR2: Hitch route (outlet)",
+                    "WR3: Go route (clear safety)",
+                    "QB: Read defense, multiple handoff options",
+                    "Center: Release left if bootleg develops"
+                ]
+            },
+            
+            mirrorMagic: {
+                name: "Mirror Magic",
+                type: "Play-Action Deep Comeback Combination",
+                complexity: "simple",
+                description: "Play-action with reliable possession target",
+                passTarget: 'wr1',
+                passTime: 0.6,
+                players: {
+                    qb: { x: 400, y: 300, startX: 400, startY: 300, label: 'QB', route: [
+                        {x: 400, y: 300}, {x: 380, y: 310}, {x: 390, y: 300}
+                    ], hasBall: true },
+                    center: { x: 400, y: 280, startX: 400, startY: 280, label: 'C', route: [
+                        {x: 400, y: 280}, {x: 450, y: 270}, {x: 480, y: 260}
+                    ], hasBall: false },
+                    rb: { x: 350, y: 320, startX: 350, startY: 320, label: 'RB', route: [
+                        {x: 350, y: 320}, {x: 280, y: 300}, {x: 200, y: 280}
+                    ], hasBall: false},
+                    wr1: { x: 580, y: 280, startX: 580, startY: 280, label: 'WR1', route: [
+                        {x: 580, y: 280}, {x: 580, y: 200}, {x: 550, y: 220}
+                    ], hasBall: false},
+                    wr2: { x: 520, y: 280, startX: 520, startY: 280, label: 'WR2', route: [
+                        {x: 520, y: 280}, {x: 500, y: 250}, {x: 480, y: 220}
+                    ], hasBall: false},
+                    wr3: { x: 200, y: 280, startX: 200, startY: 280, label: 'WR3', route: [
+                        {x: 200, y: 280}, {x: 250, y: 200}, {x: 300, y: 150}
+                    ], hasBall: false}
+                },
+                routes: [
+                    "WR1: Deep comeback route (PRIMARY TARGET)",
+                    "WR2: Deep slant right (secondary)",
+                    "WR3: Deep post route",
+                    "RB: Fake handoff, swing route left",
+                    "QB: Play-action fake, pass to WR1",
+                    "Center: Quick hitch right (safety valve)"
+                ]
+            },
+            
+            smokeScreen: {
+                name: "Smoke Screen",
+                type: "Trips Overload with Motion Deception",
+                complexity: "intermediate",
+                description: "Motion creates coverage conflict with crossing routes",
+                passTarget: 'wr2',
+                passTime: 0.5,
+                players: {
+                    qb: { x: 400, y: 300, startX: 400, startY: 300, label: 'QB', route: [], hasBall: true },
+                    center: { x: 400, y: 280, startX: 400, startY: 280, label: 'C', route: [
+                        {x: 400, y: 280}, {x: 450, y: 270}, {x: 480, y: 260}
+                    ], hasBall: false },
                     rb: { x: 350, y: 320, startX: 350, startY: 320, label: 'RB', route: [
                         {x: 350, y: 320}, {x: 300, y: 300}, {x: 250, y: 280}
                     ], hasBall: false},
@@ -929,204 +1223,12 @@
             drawField();
         }
         
-        // Initialize the field
-        drawField();
-        
         // Handle window resize
         window.addEventListener('resize', () => {
-            drawField();
-        });
-        
-        // Auto-select first play
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                document.querySelector('.play-button').click();
-            }, 500);
+            if (document.getElementById('mainContent').style.display !== 'none') {
+                drawField();
+            }
         });
     </script>
 </body>
 </html>
-                        {x: 350, y: 320}, {x: 300, y: 310}, {x: 320, y: 300}, {x: 250, y: 280}, {x: 180, y: 200}
-                    ], hasBall: false},
-                    wr1: { x: 600, y: 280, startX: 600, startY: 280, label: 'WR1', route: [
-                        {x: 600, y: 280}, {x: 550, y: 200}, {x: 500, y: 150}
-                    ], hasBall: false},
-                    wr2: { x: 550, y: 280, startX: 550, startY: 280, label: 'WR2', route: [
-                        {x: 550, y: 280}, {x: 500, y: 250}, {x: 450, y: 200}
-                    ], hasBall: false},
-                    wr3: { 
-                        x: 500, y: 280, startX: 500, startY: 280,
-                        motionX: 380, motionY: 310, label: 'WR3', 
-                        route: [{x: 380, y: 310}, {x: 320, y: 300}, {x: 280, y: 280}, {x: 240, y: 200}], 
-                        hasBall: false
-                    }
-                },
-                routes: [
-                    "RB: Gets handoff, fakes reverse to WR3, keeps ball left",
-                    "WR1: Deep post route",
-                    "WR2: Deep slant right",
-                    "WR3: Pre-snap motion, reverse fake, continue upfield",
-                    "QB: Handoff to RB",
-                    "Center: Quick out left"
-                ]
-            },
-            
-            tornadoTwist: {
-                name: "Tornado Twist",
-                type: "Bootleg Run with Play-Action Fake",
-                complexity: "intermediate",
-                description: "Triple level deception with bootleg action",
-                players: {
-                    qb: { x: 400, y: 300, startX: 400, startY: 300, label: 'QB', route: [
-                        {x: 400, y: 300}, {x: 420, y: 310}, {x: 380, y: 320}, {x: 350, y: 300}
-                    ], hasBall: true },
-                    center: { x: 400, y: 280, startX: 400, startY: 280, label: 'C', route: [
-                        {x: 400, y: 280}, {x: 350, y: 270}, {x: 300, y: 260}
-                    ], hasBall: false },
-                    rb: { x: 400, y: 340, startX: 400, startY: 340, label: 'RB', route: [
-                        {x: 400, y: 340}, {x: 420, y: 330}, {x: 380, y: 320}, {x: 320, y: 300}, {x: 250, y: 280}, {x: 180, y: 200}
-                    ], hasBall: false},
-                    wr1: { x: 200, y: 280, startX: 200, startY: 280, label: 'WR1', route: [
-                        {x: 200, y: 280}, {x: 200, y: 250}, {x: 220, y: 220}
-                    ], hasBall: false},
-                    wr2: { x: 600, y: 280, startX: 600, startY: 280, label: 'WR2', route: [
-                        {x: 600, y: 280}, {x: 580, y: 200}, {x: 560, y: 150}
-                    ], hasBall: false},
-                    wr3: { x: 550, y: 280, startX: 550, startY: 280, label: 'WR3', route: [
-                        {x: 550, y: 280}, {x: 520, y: 250}, {x: 500, y: 220}
-                    ], hasBall: false}
-                },
-                routes: [
-                    "RB: Fake receive right, loop behind QB for real handoff left",
-                    "WR1: Deep comeback (outlet)",
-                    "WR2: Deep corner route",
-                    "WR3: Quick slant right",
-                    "QB: Fake handoff right, bootleg left, handoff to RB",
-                    "Center: Release left, lead block"
-                ]
-            },
-            
-            whirlpool: {
-                name: "Whirlpool",
-                type: "Jet Sweep with Counter Action",
-                complexity: "advanced",
-                description: "High-level misdirection using motion and counter",
-                players: {
-                    qb: { x: 400, y: 300, startX: 400, startY: 300, label: 'QB', route: [
-                        {x: 400, y: 300}, {x: 420, y: 310}
-                    ], hasBall: true },
-                    center: { x: 400, y: 280, startX: 400, startY: 280, label: 'C', route: [
-                        {x: 400, y: 280}, {x: 450, y: 270}, {x: 500, y: 260}
-                    ], hasBall: false },
-                    rb: { x: 350, y: 320, startX: 350, startY: 320, label: 'RB', route: [
-                        {x: 350, y: 320}, {x: 420, y: 310}, {x: 500, y: 300}, {x: 580, y: 280}, {x: 650, y: 200}
-                    ], hasBall: false},
-                    wr1: { x: 200, y: 280, startX: 200, startY: 280, label: 'WR1', route: [
-                        {x: 200, y: 280}, {x: 250, y: 200}, {x: 300, y: 150}
-                    ], hasBall: false},
-                    wr2: { 
-                        x: 600, y: 280, startX: 600, startY: 280,
-                        motionX: 300, motionY: 320, label: 'WR2', 
-                        route: [{x: 300, y: 320}, {x: 250, y: 300}, {x: 200, y: 280}, {x: 150, y: 200}], 
-                        hasBall: false
-                    },
-                    wr3: { x: 250, y: 280, startX: 250, startY: 280, label: 'WR3', route: [
-                        {x: 250, y: 280}, {x: 250, y: 250}, {x: 270, y: 220}
-                    ], hasBall: false}
-                },
-                routes: [
-                    "RB: Counter handoff right after jet fake",
-                    "WR1: Deep post route",
-                    "WR2: Pre-snap jet motion, fake handoff, continue left",
-                    "WR3: Quick hitch (outlet)",
-                    "QB: Fake jet handoff, counter to RB",
-                    "Center: Release right, lead block"
-                ]
-            },
-            
-            switchblade: {
-                name: "Switchblade",
-                type: "RPO Run with Multiple Fakes",
-                complexity: "advanced",
-                description: "Multiple options with built-in pass safety valves",
-                players: {
-                    qb: { x: 400, y: 300, startX: 400, startY: 300, label: 'QB', route: [
-                        {x: 400, y: 300}, {x: 380, y: 310}, {x: 350, y: 320}
-                    ], hasBall: true },
-                    center: { x: 400, y: 280, startX: 400, startY: 280, label: 'C', route: [
-                        {x: 400, y: 280}, {x: 350, y: 270}, {x: 300, y: 260}
-                    ], hasBall: false },
-                    rb: { x: 450, y: 320, startX: 450, startY: 320, label: 'RB', route: [
-                        {x: 450, y: 320}, {x: 380, y: 310}, {x: 320, y: 300}, {x: 250, y: 280}, {x: 180, y: 200}
-                    ], hasBall: false},
-                    wr1: { x: 550, y: 280, startX: 550, startY: 280, label: 'WR1', route: [
-                        {x: 550, y: 280}, {x: 520, y: 250}, {x: 500, y: 220}
-                    ], hasBall: false},
-                    wr2: { x: 580, y: 280, startX: 580, startY: 280, label: 'WR2', route: [
-                        {x: 580, y: 280}, {x: 580, y: 250}, {x: 600, y: 220}
-                    ], hasBall: false},
-                    wr3: { x: 610, y: 280, startX: 610, startY: 280, label: 'WR3', route: [
-                        {x: 610, y: 280}, {x: 610, y: 200}, {x: 610, y: 150}
-                    ], hasBall: false}
-                },
-                routes: [
-                    "RB: Multiple options - slant, fake, or pitch",
-                    "WR1: Quick slant right",
-                    "WR2: Hitch route (outlet)",
-                    "WR3: Go route (clear safety)",
-                    "QB: Read defense, multiple handoff options",
-                    "Center: Release left if bootleg develops"
-                ]
-            },
-            
-            // Update play definitions to include pass targets for passing plays
-            mirrorMagic: {
-                name: "Mirror Magic",
-                type: "Play-Action Deep Comeback Combination",
-                complexity: "simple",
-                description: "Play-action with reliable possession target",
-                passTarget: 'wr1',
-                passTime: 0.6,
-                players: {
-                    qb: { x: 400, y: 300, startX: 400, startY: 300, label: 'QB', route: [
-                        {x: 400, y: 300}, {x: 380, y: 310}, {x: 390, y: 300}
-                    ], hasBall: true },
-                    center: { x: 400, y: 280, startX: 400, startY: 280, label: 'C', route: [
-                        {x: 400, y: 280}, {x: 450, y: 270}, {x: 480, y: 260}
-                    ], hasBall: false },
-                    rb: { x: 350, y: 320, startX: 350, startY: 320, label: 'RB', route: [
-                        {x: 350, y: 320}, {x: 280, y: 300}, {x: 200, y: 280}
-                    ], hasBall: false},
-                    wr1: { x: 580, y: 280, startX: 580, startY: 280, label: 'WR1', route: [
-                        {x: 580, y: 280}, {x: 580, y: 200}, {x: 550, y: 220}
-                    ], hasBall: false},
-                    wr2: { x: 520, y: 280, startX: 520, startY: 280, label: 'WR2', route: [
-                        {x: 520, y: 280}, {x: 500, y: 250}, {x: 480, y: 220}
-                    ], hasBall: false},
-                    wr3: { x: 200, y: 280, startX: 200, startY: 280, label: 'WR3', route: [
-                        {x: 200, y: 280}, {x: 250, y: 200}, {x: 300, y: 150}
-                    ], hasBall: false}
-                },
-                routes: [
-                    "WR1: Deep comeback route (PRIMARY TARGET)",
-                    "WR2: Deep slant right (secondary)",
-                    "WR3: Deep post route",
-                    "RB: Fake handoff, swing route left",
-                    "QB: Play-action fake, pass to WR1",
-                    "Center: Quick hitch right (safety valve)"
-                ]
-            },
-            
-            smokeScreen: {
-                name: "Smoke Screen",
-                type: "Trips Overload with Motion Deception",
-                complexity: "intermediate",
-                description: "Motion creates coverage conflict with crossing routes",
-                passTarget: 'wr2',
-                passTime: 0.5,
-                players: {
-                    qb: { x: 400, y: 300, startX: 400, startY: 300, label: 'QB', route: [], hasBall: true },
-                    center: { x: 400, y: 280, startX: 400, startY: 280, label: 'C', route: [
-                        {x: 400, y: 280}, {x: 450, y: 270}, {x: 480, y: 260}
-                    ], hasBall: false },
-                    rb: { x: 350, y: 320, startX: 350, startY: 320, label: 'RB', route: [

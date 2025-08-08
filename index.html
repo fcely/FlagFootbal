@@ -135,6 +135,22 @@
             transition: all 0.3s ease;
             text-align: center;
         }
+
+        .green{
+
+             background: linear-gradient(135deg, #2ec209, #b5e985);
+
+
+
+        }
+
+        .play-button.green.active {
+            background: linear-gradient(135deg, #86b87a, #c2e0a5);
+            color: #023f26;
+        }
+
+
+
         
         .play-button:hover {
             transform: translateY(-2px);
@@ -302,18 +318,18 @@
         <h1>🏈 Touchdown Divas</h1>
       
         <p style="text-align: center; font-size: 1.2em; margin-bottom: 30px; opacity: 0.9;">
-            Fall 2025 Playbook 
+            Fall 2025 Playbook. (Green = Practiced plays for scrimmage)
         </p>
         
         <div class="playbook-nav">
             <div class="play-category">
                 <div class="category-title">🏃‍♂️ Running Plays</div>
-                <button class="play-button" onclick="selectPlay('triadTriumph')">Triad Triumph</button>
-                <button class="play-button" onclick="selectPlay('tigerJack')">Tiger Jack in the Box</button>
-                <button class="play-button" onclick="selectPlay('snakeCharmer')">Snake Charmer</button>
-                <button class="play-button" onclick="selectPlay('boomerang')">Boomerang</button>
-                <button class="play-button" onclick="selectPlay('tornadoTwist')">Tornado Twist</button>
-                <button class="play-button" onclick="selectPlay('whirlpool')">Whirlpool</button>
+                <button class="play-button green" onclick="selectPlay('triadTriumph')">Triad Triumph</button>
+                <button class="play-button green" onclick="selectPlay('tigerJack')">Tiger Jack in the Box</button>
+                <button class="play-button green" onclick="selectPlay('snakeCharmer')">Snake Charmer</button>
+                <button class="play-button green" onclick="selectPlay('boomerang')">Boomerang</button>
+                <button class="play-button green" onclick="selectPlay('whirlpool')">Whirlpool</button>
+                <button class="play-button" onclick="selectPlay('tornadoTwist')">Tornado Twist</button>              
                 <button class="play-button" onclick="selectPlay('switchblade')">Switchblade</button>
             </div>
             
@@ -338,7 +354,7 @@
             <div class="controls">
                 <button class="primary-btn control-btn" onclick="runPlay()">🚀 Run Play</button>
                 <button class="secondary-btn control-btn" onclick="resetPlay()">🔄 Reset</button>
-                <button class="secondary-btn control-btn" onclick="toggleTrails()">👁️ Toggle Trails</button>
+                
             </div>
             
             <div class="play-info" id="playInfo">

@@ -467,8 +467,8 @@
             }
         },
         routes: [
-            "Players 1: Looks back at the QB at the snap, then runs deep left.",
-            "Player 2: PMoves right before the snap, fakes a handoff from the QB, then runs out to the right.",
+            "Player 1: Looks back at the QB at the snap, then runs deep left.",
+            "Player 2: Moves right before the snap, fakes a handoff from the QB, then runs out to the right.",
             "Player 3: Looks backwards at snap, deep post route right (clear safety),Pulls safeties and defenders deep.",
             "Player 4: Looks backwards at snap, crosses behind QB for HANDOFF, continues left upfield (PRIMARY BALL CARRIER)",
             "QB: Fakes a rollout or pass left, secretly hands off to Player 4.",
@@ -914,6 +914,8 @@
             ctx.moveTo(0, 280);
             ctx.lineTo(canvas.width, 280);
             ctx.stroke();
+
+            drawGoalPosts()
         }
         
         function drawPlayer(player) {
@@ -1094,6 +1096,56 @@
                 }
             }
         }
+
+        function drawGoalPosts() {
+    ctx.strokeStyle = 'yellow';
+    ctx.lineWidth = 4;
+    
+    // Goal post at top (north end zone)
+    const topGoalY = 25; // Position in end zone
+    
+    // Vertical posts
+    ctx.beginPath();
+    ctx.moveTo(canvas.width/2 - 30, topGoalY - 20); // Left upright
+    ctx.lineTo(canvas.width/2 - 30, topGoalY + 20);
+    ctx.stroke();
+    
+    ctx.beginPath();
+    ctx.moveTo(canvas.width/2 + 30, topGoalY - 20); // Right upright
+    ctx.lineTo(canvas.width/2 + 30, topGoalY + 20);
+    ctx.stroke();
+    
+    // Crossbar
+    ctx.beginPath();
+    ctx.moveTo(canvas.width/2 - 30, topGoalY);
+    ctx.lineTo(canvas.width/2 + 30, topGoalY);
+    ctx.stroke();
+    
+    // Goal post at bottom (south end zone)
+    const bottomGoalY = canvas.height - 25;
+    
+    // Vertical posts
+    ctx.beginPath();
+    ctx.moveTo(canvas.width/2 - 30, bottomGoalY - 20);
+    ctx.lineTo(canvas.width/2 - 30, bottomGoalY + 20);
+    ctx.stroke();
+    
+    ctx.beginPath();
+    ctx.moveTo(canvas.width/2 + 30, bottomGoalY - 20);
+    ctx.lineTo(canvas.width/2 + 30, bottomGoalY + 20);
+    ctx.stroke();
+    
+    // Crossbar
+    ctx.beginPath();
+    ctx.moveTo(canvas.width/2 - 30, bottomGoalY);
+    ctx.lineTo(canvas.width/2 + 30, bottomGoalY);
+    ctx.stroke();
+}
+
+
+
+
+
         
         function selectPlay(playName) {
             // Remove active class from all buttons

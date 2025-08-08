@@ -360,8 +360,8 @@
         function checkPassword() {
             const password = document.getElementById('passwordInput').value;
             const errorMessage = document.getElementById('errorMessage');
-            if (1 === 1){
-            //if (password === 'divas2025') {
+            //if (1 === 1){
+            if (password === 'divas2025') {
                 document.getElementById('passwordOverlay').style.display = 'none';
                 document.getElementById('mainContent').style.display = 'block';
                 initializePlaybook();
@@ -507,7 +507,7 @@
             ], hasBall: true },
             center: { x: 400, y: 280, startX: 400, startY: 280, label: 'C', route: [], hasBall: false },
             player1: { x: 350, y: 320, startX: 350, startY: 320, label: '1', route: [
-                {x: 350, y: 320}, {x: 280, y: 300}, {x: 200, y: 280}
+                {x: 350, y: 320}, {x: 280, y: 300}, {x: 200, y: 280},{x: 200, y: 100}
             ], hasBall: false},
             player2: { x: 150, y: 280, startX: 150, startY: 280, label: '2', route: [
                 {x: 150, y: 280}, {x: 150, y: 250}, {x: 150, y: 200}
@@ -516,7 +516,7 @@
                 {x: 650, y: 280}, {x: 650, y: 250}, {x: 650, y: 150}
             ], hasBall: false},
             player4: { x: 450, y: 320, startX: 450, startY: 320, label: '4', route: [
-                {x: 450, y: 320}, {x: 420, y: 300}, {x: 520, y: 280}, {x: 600, y: 200}
+                {x: 450, y: 320}, {x: 420, y: 300}, {x: 520, y: 280}, {x: 600, y: 200},{x: 600, y: 100}
             ], hasBall: false}
         },
         routes: [
@@ -536,7 +536,7 @@
         description: "Double misdirection with reverse fake - Player #4 gets the ball",
         players: {
             qb: { x: 400, y: 300, startX: 400, startY: 300, label: 'QB', route: [], hasBall: true },
-            center: { x: 400, y: 280, startX: 400, startY: 280, label: 'C', route: [], hasBall: false },
+            center: { x: 400, y: 280, startX: 400, startY: 280, label: 'C', route: [ {x: 400, y: 280}, {x: 300, y: 220},], hasBall: false },
             player1: { x: 600, y: 280, startX: 600, startY: 280, label: '1', route: [
                 {x: 600, y: 280}, {x: 550, y: 200}, {x: 500, y: 150}
             ], hasBall: false},
@@ -591,7 +591,7 @@
         routes: [
             "Player 1: Deep comeback (outlet)",
             "Player 2: Deep corner route",
-            "Player 3: Quick slant right",
+            "Player 3: Quick slant left",
             "Player 4: Fake receive right, loop behind QB for real handoff left (PRIMARY BALL CARRIER)",
             "QB: Fake handoff right, bootleg left, handoff to Player 4",
             "Center: Release left, lead block"
@@ -620,7 +620,7 @@
                 hasBall: false
             },
             player3: { x: 250, y: 280, startX: 250, startY: 280, label: '3', route: [
-                {x: 250, y: 280}, {x: 250, y: 250}, {x: 270, y: 220}
+                {x: 250, y: 280}, {x: 250, y: 250}, {x: 300, y: 220}
             ], hasBall: false},
             player4: { x: 350, y: 320, startX: 350, startY: 320, label: '4', route: [
                 {x: 350, y: 320}, {x: 420, y: 310}, {x: 500, y: 300}, {x: 580, y: 280}, {x: 650, y: 200}
@@ -629,8 +629,8 @@
         routes: [
             "Player 1: Deep post route",
             "Player 2: Pre-snap jet motion, fake handoff, continue left",
-            "Player 3: Quick hitch (outlet)",
-            "Player 4: Counter handoff right after jet fake (PRIMARY BALL CARRIER)",
+            "Player 3: Quick hitch (outlet), short route where Player 3 quickly stops and turns back to the quarterback to provide a safe passing option if needed.",
+            "Player 4: (PRIMARY BALL CARRIER)",
             "QB: Fake jet handoff, counter to Player 4",
             "Center: Release right, lead block"
         ]
@@ -662,12 +662,12 @@
             ], hasBall: false}
         },
         routes: [
-            "Player 1: Quick slant right",
-            "Player 2: Hitch route (outlet)",
-            "Player 3: Go route (clear safety)",
+            "Player 1: Hitch route (outlet)",
+            "Player 2: Quick slant right",
+            "Player 3: Go deep (clear safety)",
             "Player 4: Multiple options - slant, fake, or pitch (PRIMARY BALL CARRIER)",
             "QB: Read defense, multiple handoff options to Player 4",
-            "Center: Release left if bootleg develops"
+            "Center: Release left protect 4"
         ]
     },
     
@@ -689,13 +689,13 @@
                 {x: 350, y: 320}, {x: 280, y: 300}, {x: 200, y: 280}
             ], hasBall: false},
             player2: { x: 520, y: 280, startX: 520, startY: 280, label: '2', route: [
-                {x: 520, y: 280}, {x: 500, y: 250}, {x: 480, y: 220}
+                {x: 520, y: 280}, {x: 500, y: 250}, {x: 480, y: 120}
             ], hasBall: false},
             player3: { x: 200, y: 280, startX: 200, startY: 280, label: '3', route: [
                 {x: 200, y: 280}, {x: 250, y: 200}, {x: 300, y: 150}
             ], hasBall: false},
             player4: { x: 580, y: 280, startX: 580, startY: 280, label: '4', route: [
-                {x: 580, y: 280}, {x: 580, y: 200}, {x: 550, y: 220}
+                {x: 580, y: 280}, {x: 580, y: 150}, {x: 550, y: 155}
             ], hasBall: false}
         },
         routes: [
@@ -737,9 +737,9 @@
             ], hasBall: false}
         },
         routes: [
-            "Player 1: Checkdown route left",
+            "Player 1: Short route left(safety net)",
             "Player 2: Corner route right",
-            "Player 3: Pre-snap motion, deep post route left",
+            "Player 3: Pre-snap motion left, deep post route ",
             "Player 4: Deep slant across middle (PRIMARY TARGET)",
             "QB: Quick progression through crossing routes to Player 4",
             "Center: Quick out right (outlet)"
@@ -754,15 +754,15 @@
         passTarget: 'player4',
         passTime: 0.7,
         players: {
-            qb: { x: 400, y: 300, startX: 400, startY: 300, label: 'QB', route: [], hasBall: true },
+            qb: { x: 400, y: 300, startX: 400, startY: 300, label: 'QB', route: [{x: 400, y: 310},{x: 400, y: 320}], hasBall: true },
             center: { x: 400, y: 280, startX: 400, startY: 280, label: 'C', route: [
-                {x: 400, y: 280}, {x: 400, y: 260}, {x: 420, y: 240}
+                {x: 400, y: 280}, {x: 400, y: 260}, {x: 400, y: 220}
             ], hasBall: false },
             player1: { x: 450, y: 320, startX: 450, startY: 320, label: '1', route: [
                 {x: 450, y: 320}, {x: 500, y: 300}, {x: 550, y: 280}
             ], hasBall: false},
             player2: { x: 250, y: 280, startX: 250, startY: 280, label: '2', route: [
-                {x: 250, y: 280}, {x: 250, y: 250}, {x: 270, y: 220}
+                {x: 250, y: 280}, {x: 250, y: 140}, {x: 290, y: 150}
             ], hasBall: false},
             player3: { x: 600, y: 280, startX: 600, startY: 280, label: '3', route: [
                 {x: 600, y: 280}, {x: 580, y: 250}, {x: 560, y: 220}
@@ -775,9 +775,9 @@
             "Player 1: Swing route right (checkdown)",
             "Player 2: Deep comeback (secondary)",
             "Player 3: Out route (quick option)",
-            "Player 4: Sluggo route - slant fake then go (PRIMARY DEEP TARGET)",
+            "Player 4: Slant toward middle, then accelerate straight downfield (PRIMARY DEEP TARGET)",
             "QB: 5-step drop, deep shot timing to Player 4",
-            "Center: Quick hitch (outlet)"
+            "Center: Quick hitch (outlet)- Run forward just a few yards (usually 3–5) and quickly turns back toward the quarterback"
         ]
     },
     
@@ -794,16 +794,16 @@
                 {x: 400, y: 280}, {x: 350, y: 270}, {x: 320, y: 260}
             ], hasBall: false },
             player1: { x: 350, y: 320, startX: 350, startY: 320, label: '1', route: [
-                {x: 350, y: 320}, {x: 300, y: 300}, {x: 250, y: 280}
+                {x: 350, y: 320}, {x: 300, y: 300}, {x: 250, y: 250}
             ], hasBall: false},
             player2: { x: 570, y: 280, startX: 570, startY: 280, label: '2', route: [
                 {x: 570, y: 280}, {x: 540, y: 250}, {x: 520, y: 220}
             ], hasBall: false},
-            player3: { x: 590, y: 280, startX: 590, startY: 280, label: '3', route: [
-                {x: 590, y: 280}, {x: 550, y: 200}, {x: 500, y: 150}
+            player3: { x: 600, y: 280, startX: 600, startY: 280, label: '3', route: [
+                {x: 600, y: 280}, {x: 550, y: 200}, {x: 500, y: 150}
             ], hasBall: false},
-            player4: { x: 550, y: 280, startX: 550, startY: 280, label: '4', route: [
-                {x: 550, y: 280}, {x: 550, y: 250}, {x: 530, y: 220}
+            player4: { x: 530, y: 280, startX: 530, startY: 280, label: '4', route: [
+                {x: 530, y: 250}, {x: 530, y: 140}, {x: 500, y: 155}
             ], hasBall: false}
         },
         routes: [
@@ -844,12 +844,12 @@
            ], hasBall: false}
        },
        routes: [
-           "Player 1: Swing route right after fake",
-           "Player 2: Deep comeback right (backside)",
-           "Player 3: Deep slant left (secondary)",
-           "Player 4: Corner route left (PRIMARY HIGH TARGET)",
-           "QB: Play-action fake right, bootleg left, pass to Player 4",
-           "Center: Trail QB on bootleg (late outlet)"
+           "Player 1: Quickly moves to the right side, giving the quarterback a short, quick passing option.",
+           "Player 2: Deep comeback right (backside),Player 2 runs far down the field, then quickly turns back toward the quarterback to catch a longer pass",
+           "Player 3: Deep slant left (secondary),Player 3 runs diagonally across the field from right to left, providing a mid-range passing option",
+           "Player 4: Corner route left (PRIMARY HIGH TARGET).  Runs toward the corner of the field and is the main intended receiver for the quarterback's pass.",
+           "QB: Performs a play-action fake to the right to mislead the defense, then boots (rolls) left and passes to Player 4",
+           "Center: Trail QB on bootleg (late outlet if the primary options are covered.)"
        ]
    }
 };

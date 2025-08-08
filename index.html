@@ -308,6 +308,7 @@
         <div class="playbook-nav">
             <div class="play-category">
                 <div class="category-title">🏃‍♂️ Running Plays</div>
+                <button class="play-button" onclick="selectPlay('triadTriumph')">Triad Triumph</button>
                 <button class="play-button" onclick="selectPlay('tigerJack')">Tiger Jack in the Box</button>
                 <button class="play-button" onclick="selectPlay('snakeCharmer')">Snake Charmer</button>
                 <button class="play-button" onclick="selectPlay('boomerang')">Boomerang</button>
@@ -398,6 +399,71 @@
         
         // Play definitions
         const plays = {
+        triadTriumph: {
+                name: "Triad Triumph",
+                type: "Misdirection Pass with Triple Receiver Deception",
+                complexity: "advanced",
+                description: "Three receivers look backwards at snap creating massive confusion while motion draws defense right, QB bootlegs left for handoff to crossing receiver",
+                passTarget: 'wr2', // Middle receiver gets the handoff and becomes primary target
+                passTime: 0.4, // Quick handoff timing
+                players: {
+                    qb: { 
+                        x: 400, y: 300, startX: 400, startY: 300, label: 'QB', 
+                        route: [
+                            {x: 400, y: 300}, {x: 380, y: 290}, {x: 360, y: 280}, {x: 340, y: 270}
+                        ], 
+                        hasBall: true 
+                    },
+                    center: { 
+                        x: 400, y: 280, startX: 400, startY: 280, label: 'C', 
+                        route: [
+                            {x: 400, y: 280}, {x: 350, y: 270}, {x: 300, y: 260}
+                        ], 
+                        hasBall: false 
+                    },
+                    rb: { 
+                        x: 450, y: 320, startX: 450, startY: 320,
+                        motionX: 380, motionY: 310, label: 'RB', 
+                        route: [
+                            {x: 380, y: 310}, {x: 420, y: 300}, {x: 480, y: 280}, {x: 550, y: 250}
+                        ], 
+                        hasBall: false
+                    },
+                    wr1: { 
+                        x: 200, y: 280, startX: 200, startY: 280, label: 'WR1', 
+                        route: [
+                            {x: 200, y: 280}, {x: 180, y: 250}, {x: 160, y: 200}, {x: 140, y: 150}
+                        ], 
+                        hasBall: false
+                    },
+                    wr2: { 
+                        x: 400, y: 250, startX: 400, startY: 250, label: 'WR2', 
+                        route: [
+                            {x: 400, y: 250}, {x: 380, y: 260}, {x: 340, y: 270}, {x: 280, y: 280}, {x: 200, y: 250}, {x: 150, y: 200}
+                        ], 
+                        hasBall: false
+                    },
+                    wr3: { 
+                        x: 600, y: 280, startX: 600, startY: 280, label: 'WR3', 
+                        route: [
+                            {x: 600, y: 280}, {x: 580, y: 200}, {x: 560, y: 150}, {x: 540, y: 100}
+                        ], 
+                        hasBall: false
+                    }
+                },
+                routes: [
+                    "WR1: Looks backwards at snap, deep corner route left (decoy)",
+                    "WR2: Looks backwards at snap, crosses behind QB for HANDOFF, continues left upfield (PRIMARY BALL CARRIER)",
+                    "WR3: Looks backwards at snap, deep post route right (clear safety)",
+                    "RB: Pre-snap motion toward QB, fake handoff, swing route right (major decoy)",
+                    "QB: Bootleg left, handoff to crossing WR2",
+                    "Center: Release left, lead block for WR2"
+                ]
+            },
+
+
+
+
             tigerJack: {
                 name: "Tiger Jack in the Box",
                 type: "Running Play - QB Handoff to Player 4",
